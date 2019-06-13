@@ -18,7 +18,7 @@ class Robot extends Enemy {
   void update () {
     
     boolean checkX = ( currentSpeed > 0 && player.x + w/2 > x+HAND_OFFSET_X_FORWARD )
-            || ( currentSpeed < 0 && player.x + w/2 < x-HAND_OFFSET_X_BACKWARD );
+            || ( currentSpeed < 0 && player.x + w/2 < x+HAND_OFFSET_X_BACKWARD );
   
     boolean checkY = player.y >= y-(2*SOIL_SIZE) && player.y <= y+(2*SOIL_SIZE); 
   
@@ -27,7 +27,7 @@ class Robot extends Enemy {
         timer++;
       }
       if(timer == LASER_COOLDOWN){
-        laser.fire((currentSpeed > 0) ? x+HAND_OFFSET_X_FORWARD : x-HAND_OFFSET_X_BACKWARD ,y+HAND_OFFSET_Y,player.x + w/2,player.y + h/2);
+        laser.fire((currentSpeed > 0) ? x+HAND_OFFSET_X_FORWARD : x+HAND_OFFSET_X_BACKWARD ,y+HAND_OFFSET_Y,player.x + w/2,player.y + h/2);
         timer = 0;
       }
     }else{
